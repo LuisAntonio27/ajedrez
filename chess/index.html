@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="js/angular.min.js" type="text/javascript"></script>
+        <script src="js/controllers.js" type="text/javascript"></script>
+        <style type="text/css">
+            .casilla {
+                width: 35px;
+                height: 35px;
+                color: yellow;
+            }
+            .blanco{
+                background-color: #FFF;
+            }
+            .negro{
+                background-color: #996;
+            }
+        </style>
+    </head>
+    <body ng-app='myApp'>
+        <div ng-controller="chessCtrl">
+            <table>
+                <tr ng-repeat="fila in tablero">
+                    <td ng-repeat="casilla in fila" class="casilla" ng-class="casilla.color" ng-click="mover_pieza(casilla)">
+                        <img ng-if="casilla.pieza" ng-src="images/Chess_{{casilla.pieza.nombre}}{{casilla.pieza.jugador}}t60.png" style="width: 20px" >
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
